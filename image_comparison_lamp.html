@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Image Comparison</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* 告诉浏览器这个页面支持 light/dark 两种颜色模式 */
+      color-scheme: light dark;
+
+      /* ===== 默认：浅色主题 ===== */
+      --page-bg: #f9fafb;
+      --page-text: #111827;
+
+      --compare-bg: #ffffff;
+      --compare-border: #d1d5db;
+      --compare-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+      --pane-bg: #f9fafb;
+      --pane-border: #e5e7eb;
+
+      --label-bg: rgba(15, 23, 42, 0.85);
+      --label-border: rgba(55, 65, 81, 0.9);
+
+      --footer-text: #6b7280;
+    }
+
+    /* ===== 深色主题：覆盖变量 ===== */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page-bg: #111827;
+        --page-text: #e5e7eb;
+
+        --compare-bg: #020617;
+        --compare-border: #1f2937;
+        --compare-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+        --pane-bg: #020617;
+        --pane-border: #1f2937;
+
+        --footer-text: #6b7280; /* 深色下依然用这个略灰的文字色 */
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--page-bg);
+      color: var(--page-text);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .compare-root {
+      width: 100%;
+      max-width: 1100px;
+      border-radius: 12px;
+      background: var(--compare-bg);
+      border: 1px solid var(--compare-border);
+      box-shadow: var(--compare-shadow);
+      padding: 16px 16px 20px;
+    }
+
+    .compare-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 12px;
+    }
+
+    .compare-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--page-text);
+    }
+
+    .compare-main {
+      display: flex;
+      gap: 8px;
+      height: 420px;
+      margin-top: 4px;
+    }
+
+    .compare-pane {
+      flex: 1;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--pane-bg);
+      border: 1px solid var(--pane-border);
+      cursor: grab;
+      user-select: none;
+    }
+
+    .compare-pane:active {
+      cursor: grabbing;
+    }
+
+    .compare-pane-label {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--label-bg);
+      border: 1px solid var(--label-border);
+      font-size: 11px;
+      color: #e5e7eb;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .compare-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform-origin: center center;
+      transform: translate(0px, 0px) scale(1);
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .compare-footer {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--footer-text);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .compare-footer span {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 768px) {
+      .compare-main {
+        flex-direction: column;
+        height: 360px;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="compare-root" id="compare-root">
+    <div class="compare-header">
+      <div class="compare-title">图像对比（同步缩放与拖动）</div>
+      <!-- 只有一组，不再需要选项组件 -->
+    </div>
+
+    <div class="compare-main">
+      <div class="compare-pane" data-side="left">
+        <div class="compare-pane-label">Left</div>
+        <img src="" alt="left image" />
+      </div>
+      <div class="compare-pane" data-side="right">
+        <div class="compare-pane-label">Right</div>
+        <img src="" alt="right image" />
+      </div>
+    </div>
+
+    <div class="compare-footer">
+      <span>滚轮：缩放 | 按住拖动：平移</span>
+      <span id="view-status"></span>
+    </div>
+  </div>
+
+  <script>
+    // 只有一组图片
+    const imageGroups = [
+      {
+        left:  "./参考图片/实拍对比/抗眩光测试/_DSC1914.jpg",
+        right: "./参考图片/实拍对比/抗眩光测试/_DSC1916.jpg"
+      }
+    ];
+
+    class SynchronizedImageCompare {
+      constructor(root, groups) {
+        this.root = root;
+        this.groups = groups;
+
+        this.panes = Array.from(root.querySelectorAll(".compare-pane"));
+        this.images = this.panes.map(p => p.querySelector("img"));
+        this.statusEl = root.querySelector("#view-status");
+
+        this.state = {
+          scale: 1,
+          offsetX: 0,
+          offsetY: 0
+        };
+
+        this.dragging = {
+          active: false,
+          startX: 0,
+          startY: 0,
+          originX: 0,
+          originY: 0
+        };
+
+        this.MIN_SCALE = 1;
+        this.MAX_SCALE = 8;
+
+        // 初始化唯一一组
+        this.setGroup(0);
+        this.attachInteractions();
+        this.updateStatus();
+
+        // 窗口尺寸变化时重新 clamp 一下，避免缩放后越界
+        window.addEventListener("resize", () => {
+          this.clampOffsets();
+          this.applyTransform();
+        });
+      }
+
+      setGroup(index) {
+        const group = this.groups[index];
+        this.images[0].src = group.left;
+        this.images[1].src = group.right;
+
+        // 重置视图
+        this.state.scale = 1;
+        this.state.offsetX = 0;
+        this.state.offsetY = 0;
+        this.applyTransform();
+        this.updateStatus();
+      }
+
+      attachInteractions() {
+        this.panes.forEach(pane => {
+          pane.addEventListener(
+            "wheel",
+            (e) => this.onWheel(e, pane),
+            { passive: false }
+          );
+
+          pane.addEventListener("mousedown", (e) => this.onDragStart(e));
+          window.addEventListener("mousemove", (e) => this.onDragMove(e));
+          window.addEventListener("mouseup",   () => this.onDragEnd());
+          pane.addEventListener("mouseleave",  () => this.onDragEnd());
+        });
+      }
+
+      // 计算当前缩放下，X/Y 方向允许的最大平移范围
+      getMaxOffsets() {
+        const pane = this.panes[0];
+        if (!pane) return { maxX: 0, maxY: 0 };
+
+        const rect = pane.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        const extraScale = this.state.scale - 1;
+
+        if (extraScale <= 0) {
+          return { maxX: 0, maxY: 0 };
+        }
+
+        // 多出来的那一圈的一半，就是最大可拖动距离
+        return {
+          maxX: (w * extraScale) / 2,
+          maxY: (h * extraScale) / 2
+        };
+      }
+
+      // 把 offsetX/offsetY 限制在 [-max, max] 范围内
+      clampOffsets() {
+        const { maxX, maxY } = this.getMaxOffsets();
+
+        this.state.offsetX = Math.max(-maxX, Math.min(maxX, this.state.offsetX));
+        this.state.offsetY = Math.max(-maxY, Math.min(maxY, this.state.offsetY));
+
+        // scale <= 1 时不允许有偏移
+        if (this.state.scale <= 1) {
+          this.state.offsetX = 0;
+          this.state.offsetY = 0;
+        }
+      }
+
+      onWheel(e, pane) {
+        e.preventDefault();
+
+        const delta = e.deltaY;
+        const zoomFactor = delta < 0 ? 1.1 : 0.9;
+        let newScale = this.state.scale * zoomFactor;
+        newScale = Math.max(this.MIN_SCALE, Math.min(this.MAX_SCALE, newScale));
+
+        this.state.scale = newScale;
+
+        // 缩放之后重新 clamp，防止越界
+        this.clampOffsets();
+        this.applyTransform();
+        this.updateStatus();
+      }
+
+      onDragStart(e) {
+        e.preventDefault();
+        this.dragging.active = true;
+        this.dragging.startX = e.clientX;
+        this.dragging.startY = e.clientY;
+        this.dragging.originX = this.state.offsetX;
+        this.dragging.originY = this.state.offsetY;
+      }
+
+      onDragMove(e) {
+        if (!this.dragging.active) return;
+        const dx = e.clientX - this.dragging.startX;
+        const dy = e.clientY - this.dragging.startY;
+
+        this.state.offsetX = this.dragging.originX + dx;
+        this.state.offsetY = this.dragging.originY + dy;
+
+        // 拖动也要 clamp
+        this.clampOffsets();
+        this.applyTransform();
+        this.updateStatus();
+      }
+
+      onDragEnd() {
+        this.dragging.active = false;
+      }
+
+      applyTransform() {
+        const { scale, offsetX, offsetY } = this.state;
+        const transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+        this.images.forEach(img => {
+          img.style.transform = transform;
+        });
+      }
+
+      updateStatus() {
+        this.statusEl.textContent =
+          `缩放: ${this.state.scale.toFixed(2)}x | 平移: (${this.state.offsetX.toFixed(0)}, ${this.state.offsetY.toFixed(0)})`;
+      }
+    }
+
+    const root = document.getElementById("compare-root");
+    new SynchronizedImageCompare(root, imageGroups);
+  </script>
+</body>
+</html>

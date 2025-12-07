@@ -272,6 +272,12 @@
         this.setGroup(0);
         this.attachInteractions();
         this.updateStatus();
+
+        // 窗口尺寸变化时重新 clamp 一下，避免缩放后越界
+        window.addEventListener("resize", () => {
+          this.clampOffsets();
+          this.applyTransform();
+        });
       }
 
       buildGroupSelect() {
@@ -295,22 +301,23 @@
         this.images[0].src = group.left;
         this.images[1].src = group.right;
 
-        // 同步下拉选中项
-        this.groupSelect.value = String(index);
-
         // 重置视图
         this.state.scale = 1;
         this.state.offsetX = 0;
         this.state.offsetY = 0;
+        this.clampOffsets();
         this.applyTransform();
         this.updateStatus();
+
+        // 同步下拉选中项
+        this.groupSelect.value = String(index);
       }
 
       attachInteractions() {
         this.panes.forEach(pane => {
           pane.addEventListener(
             "wheel",
-            (e) => this.onWheel(e, pane),
+            (e) => this.onWheel(e),
             { passive: false }
           );
 
@@ -321,7 +328,42 @@
         });
       }
 
-      onWheel(e, pane) {
+      // 计算当前缩放下，X/Y 方向允许的最大平移范围
+      getMaxOffsets() {
+        const pane = this.panes[0];
+        if (!pane) return { maxX: 0, maxY: 0 };
+
+        const rect = pane.getBoundingClientRect();
+        const w = rect.width;
+        const h = rect.height;
+        const extraScale = this.state.scale - 1;
+
+        if (extraScale <= 0) {
+          return { maxX: 0, maxY: 0 };
+        }
+
+        // 多出来的那一圈的一半，就是最大可拖动距离
+        return {
+          maxX: (w * extraScale) / 2,
+          maxY: (h * extraScale) / 2
+        };
+      }
+
+      // 把 offsetX/offsetY 限制在 [-max, max] 范围内
+      clampOffsets() {
+        const { maxX, maxY } = this.getMaxOffsets();
+
+        this.state.offsetX = Math.max(-maxX, Math.min(maxX, this.state.offsetX));
+        this.state.offsetY = Math.max(-maxY, Math.min(maxY, this.state.offsetY));
+
+        // scale <= 1 时不允许有偏移
+        if (this.state.scale <= 1) {
+          this.state.offsetX = 0;
+          this.state.offsetY = 0;
+        }
+      }
+
+      onWheel(e) {
         e.preventDefault();
 
         const delta = e.deltaY;
@@ -330,11 +372,17 @@
         newScale = Math.max(this.MIN_SCALE, Math.min(this.MAX_SCALE, newScale));
 
         this.state.scale = newScale;
+
+        // 缩放之后重新 clamp，防止越界
+        this.clampOffsets();
         this.applyTransform();
         this.updateStatus();
       }
 
       onDragStart(e) {
+        // 未放大时不允许拖动
+        if (this.state.scale <= 1) return;
+
         e.preventDefault();
         this.dragging.active = true;
         this.dragging.startX = e.clientX;
@@ -351,6 +399,8 @@
         this.state.offsetX = this.dragging.originX + dx;
         this.state.offsetY = this.dragging.originY + dy;
 
+        // 拖动也要 clamp
+        this.clampOffsets();
         this.applyTransform();
         this.updateStatus();
       }

@@ -4,162 +4,188 @@
   <meta charset="UTF-8" />
   <title>Image Comparison</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
+  :root {
+    /* 告诉浏览器这个页面支持 light/dark 两种颜色模式 */
+    color-scheme: light dark;
+
+    /* ===== 默认：浅色主题 ===== */
+    --page-bg: #f9fafb;
+    --page-text: #111827;
+
+    --compare-bg: #ffffff;
+    --compare-border: #d1d5db;
+    --compare-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+
+    --pane-bg: #f9fafb;
+    --pane-border: #e5e7eb;
+
+    --select-bg: #ffffff;
+    --select-border: #d1d5db;
+    --select-text: #111827;
+
+    --label-bg: rgba(15, 23, 42, 0.85);
+    --label-border: rgba(55, 65, 81, 0.9);
+
+    --footer-text: #6b7280;
+  }
+
+  /* ===== 深色主题：覆盖变量 ===== */
+  @media (prefers-color-scheme: dark) {
     :root {
-      /* 告诉浏览器这个页面支持 light/dark 两种颜色模式 */
-      color-scheme: light dark;
+      --page-bg: #111827;
+      --page-text: #e5e7eb;
 
-      /* ===== 默认：浅色主题 ===== */
-      --page-bg: #f9fafb;
-      --page-text: #111827;
+      --compare-bg: #020617;
+      --compare-border: #1f2937;
+      --compare-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 
-      --compare-bg: #ffffff;
-      --compare-border: #d1d5db;
-      --compare-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+      --pane-bg: #020617;
+      --pane-border: #1f2937;
 
-      --pane-bg: #f9fafb;
-      --pane-border: #e5e7eb;
-
-      --label-bg: rgba(15, 23, 42, 0.85);
-      --label-border: rgba(55, 65, 81, 0.9);
+      --select-bg: #020617;
+      --select-border: #374151;
+      --select-text: #e5e7eb;
 
       --footer-text: #6b7280;
     }
+  }
 
-    /* ===== 深色主题：覆盖变量 ===== */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --page-bg: #111827;
-        --page-text: #e5e7eb;
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--page-bg);
+    color: var(--page-text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+  }
 
-        --compare-bg: #020617;
-        --compare-border: #1f2937;
-        --compare-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  .compare-root {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    background: var(--compare-bg);
+    border: 1px solid var(--compare-border);
+    box-shadow: var(--compare-shadow);
+    padding: 16px 16px 20px;
+  }
 
-        --pane-bg: #020617;
-        --pane-border: #1f2937;
+  .compare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
 
-        --footer-text: #6b7280; /* 深色下依然用这个略灰的文字色 */
-      }
-    }
+  .compare-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--page-text);
+  }
 
+  .compare-groups {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .compare-groups select {
+    border-radius: 999px;
+    border: 1px solid var(--select-border);
+    background: var(--select-bg);
+    padding: 4px 10px;
+    font-size: 13px;
+    color: var(--select-text);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .compare-main {
+    display: flex;
+    gap: 8px;
+    height: 420px;
+    margin-top: 4px;
+  }
+
+  .compare-pane {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--pane-bg);
+    border: 1px solid var(--pane-border);
+    cursor: grab;
+    user-select: none;
+    touch-action: none; /* 禁止浏览器默认的手势缩放/拖动，交给 JS 处理 */
+  }
+
+  .compare-pane:active {
+    cursor: grabbing;
+  }
+
+  .compare-pane-label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--label-bg);
+    border: 1px solid var(--label-border);
+    font-size: 11px;
+    color: #e5e7eb;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .compare-pane img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center center;
+    transform: translate(0px, 0px) scale(1);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .compare-footer {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--footer-text);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .compare-footer span {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--page-bg);
-      color: var(--page-text);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 24px;
-    }
-
-    .compare-root {
-      width: 100%;
-      max-width: 1100px;
-      border-radius: 12px;
-      background: var(--compare-bg);
-      border: 1px solid var(--compare-border);
-      box-shadow: var(--compare-shadow);
-      padding: 16px 16px 20px;
-    }
-
-    .compare-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      gap: 12px;
-    }
-
-    .compare-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--page-text);
+      padding: 8px;
     }
 
     .compare-main {
-      display: flex;
-      gap: 8px;
-      height: 420px;
-      margin-top: 4px;
+      flex-direction: column;
+      height: 360px;
     }
-
-    .compare-pane {
-      flex: 1;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      background: var(--pane-bg);
-      border: 1px solid var(--pane-border);
-      cursor: grab;
-      user-select: none;
-      touch-action: none; /* 关键：禁用浏览器默认手势，由 JS 接管 */
-    }
-
-    .compare-pane:active {
-      cursor: grabbing;
-    }
-
-    .compare-pane-label {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: var(--label-bg);
-      border: 1px solid var(--label-border);
-      font-size: 11px;
-      color: #e5e7eb;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .compare-pane img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transform-origin: center center;
-      transform: translate(0px, 0px) scale(1);
-      will-change: transform;
-      pointer-events: none;
-    }
-
-    .compare-footer {
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--footer-text);
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .compare-footer span {
-      white-space: nowrap;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 8px;
-      }
-
-      .compare-main {
-        flex-direction: column;
-        height: 360px;
-      }
-    }
-  </style>
+  }
+</style>
 
 </head>
 <body>
   <div class="compare-root" id="compare-root">
     <div class="compare-header">
       <div class="compare-title">图像对比（同步缩放与拖动）</div>
-      <!-- 只有一组，不再需要选项组件 -->
+      <div class="compare-groups">
+        <select id="compare-select"></select>
+      </div>
     </div>
 
     <div class="compare-main">
@@ -180,9 +206,15 @@
   </div>
 
   <script>
-    // 只有一组图片
+    // 配置图片组
     const imageGroups = [
       {
+        label: "太阳",
+        left:  "./参考图片/实拍对比/抗眩光测试/_DSC1932.jpg",
+        right: "./参考图片/实拍对比/抗眩光测试/_DSC1934.jpg"
+      },
+      {
+        label: "路灯",
         left:  "./参考图片/实拍对比/抗眩光测试/_DSC1914.jpg",
         right: "./参考图片/实拍对比/抗眩光测试/_DSC1916.jpg"
       }
@@ -192,9 +224,11 @@
       constructor(root, groups) {
         this.root = root;
         this.groups = groups;
+        this.currentGroupIndex = 0;
 
         this.panes = Array.from(root.querySelectorAll(".compare-pane"));
         this.images = this.panes.map(p => p.querySelector("img"));
+        this.groupSelect = root.querySelector("#compare-select");
         this.statusEl = root.querySelector("#view-status");
 
         this.state = {
@@ -211,7 +245,7 @@
           originY: 0
         };
 
-        // 触控状态：mode = null | "drag" | "pinch"
+        // 触摸状态：mode = null | "drag" | "pinch"
         this.touchState = {
           mode: null,
           startX: 0,
@@ -226,7 +260,7 @@
         this.MAX_SCALE = 8;
         this.DEFAULT_SCALE = 1;
 
-        // 初始化唯一一组
+        this.buildGroupSelect();
         this.setGroup(0);
         this.attachInteractions();
         this.updateStatus();
@@ -238,7 +272,23 @@
         });
       }
 
+      buildGroupSelect() {
+        this.groupSelect.innerHTML = "";
+        this.groups.forEach((g, idx) => {
+          const opt = document.createElement("option");
+          opt.value = idx;
+          opt.textContent = g.label;
+          this.groupSelect.appendChild(opt);
+        });
+
+        this.groupSelect.addEventListener("change", (e) => {
+          const idx = Number(e.target.value);
+          this.setGroup(idx);
+        });
+      }
+
       setGroup(index) {
+        this.currentGroupIndex = index;
         const group = this.groups[index];
         this.images[0].src = group.left;
         this.images[1].src = group.right;
@@ -250,6 +300,9 @@
         this.clampOffsets();
         this.applyTransform();
         this.updateStatus();
+
+        // 同步下拉选中项
+        this.groupSelect.value = String(index);
       }
 
       attachInteractions() {
@@ -267,7 +320,7 @@
           window.addEventListener("mouseup",   () => this.onDragEnd());
           pane.addEventListener("mouseleave",  () => this.onDragEnd());
 
-          // 触控：手机端开始（单指拖动 / 双指缩放）
+          // 触摸：手机端
           pane.addEventListener(
             "touchstart",
             (e) => this.onTouchStart(e),
@@ -280,8 +333,8 @@
           (e) => this.onTouchMove(e),
           { passive: false }
         );
-        window.addEventListener("touchend",    (e) => this.onTouchEnd(e));
-        window.addEventListener("touchcancel", (e) => this.onTouchEnd(e));
+        window.addEventListener("touchend",   (e) => this.onTouchEnd(e));
+        window.addEventListener("touchcancel",(e) => this.onTouchEnd(e));
       }
 
       // 计算当前缩放下，X/Y 方向允许的最大平移范围
@@ -336,7 +389,7 @@
       }
 
       onDragStart(e) {
-        // 未放大到 >1 时，不允许拖动
+        // 未放大时不允许拖动
         if (this.state.scale <= 1) return;
 
         e.preventDefault();
@@ -365,7 +418,7 @@
         this.dragging.active = false;
       }
 
-      // ====== 触控相关 ======
+      // ====== 触摸相关 ======
       getSingleTouchPoint(e) {
         const t = e.touches[0] || e.changedTouches[0];
         if (!t) return null;
@@ -382,8 +435,9 @@
       }
 
       onTouchStart(e) {
+        // 未放大也允许单指拖动吗？这里保持与鼠标行为一致：scale <= 1 不平移
         if (e.touches.length === 1) {
-          // 单指拖动（同鼠标）
+          // 单指拖动
           if (this.state.scale <= 1) return;
           const p = this.getSingleTouchPoint(e);
           if (!p) return;

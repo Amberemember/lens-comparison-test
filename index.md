@@ -62,12 +62,12 @@
 
 <div class="figure">
   <figure>
-    <img src="https://file.cc98.org/v4-upload/d/2025/1203/ystez52l.webp" alt="TS35 MTF">
+    <img src="./参考图片/镜头结构设计/TS35.jpg" alt="TS35 MTF">
     <figcaption>TS35：经典Tessar结构，设计简单，工艺成熟</figcaption>
   </figure>
 
   <figure>
-    <img src="https://file.cc98.org/v4-upload/d/2025/1203/2nntbfmr.webp" alt="35GM MTF">
+    <img src="./参考图片/镜头结构设计/35gm.png" alt="35GM MTF">
     <figcaption>35GM：明显设计更复杂，堆料更足</figcaption>
   </figure>
 </div>
@@ -78,12 +78,12 @@
 
 <div class="figure">
   <figure>
-    <img src="https://file.cc98.org/v4-upload/d/2025/1203/os3s41zx.webp" alt="TS35 MTF">
+    <img src="./参考图片/镜头结构设计/TS35_mtf.jpg" alt="TS35 MTF">
     <figcaption>TS35 MTF 曲线（f/1.6 vs f/5.6）</figcaption>
   </figure>
 
   <figure>
-    <img src="https://file.cc98.org/v4-upload/d/2025/1203/e415jwxa.webp" alt="35GM MTF">
+    <img src="./参考图片/镜头结构设计/35gm_mtf.png" alt="35GM MTF">
     <figcaption>35GM MTF 曲线（f/1.4 vs f/8.0）</figcaption>
   </figure>
 </div>
@@ -103,15 +103,15 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1205/j1s0rm14.webp" alt="示意图">
+  <img src="./参考图片/产品实拍图/_DSC1840.jpg" alt="示意图">
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1205/spc5jqel.webp" alt="示意图">
+  <img src="./参考图片/产品实拍图/_DSC1846.jpg" alt="示意图">
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1205/lpgvsrak.webp" alt="示意图">
+  <img src="./参考图片/产品实拍图/_DSC1842.jpg" alt="示意图">
 </figure>
 
 </div>
@@ -139,7 +139,7 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1207/0qn45pd2.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/相场.jpg" alt="示意图">
   <figcaption>红色与蓝色矩形分别表示apsc画幅和m43画幅</figcaption>
 </figure>
 
@@ -154,22 +154,22 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/drkiecdm.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4.jpg" alt="示意图">
   <figcaption>35GM f/1.4</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/iu5xo2ob.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4_center.png" alt="示意图">
   <figcaption>35GM 中心放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/tj4jrzd4.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6.jpg" alt="示意图">
   <figcaption>TS35 f/1.6</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ngshi54h.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6_center.png" alt="示意图">
   <figcaption>TS35 中心放大</figcaption>
 </figure>
 
@@ -180,22 +180,22 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/cs44p0rk.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f4.jpg" alt="示意图">
   <figcaption>35GM f/4.0</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/4a2f2mao.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f4_center.png" alt="示意图">
   <figcaption>35GM 中心放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/4ek4pwmi.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f4.jpg" alt="示意图">
   <figcaption>TS35 f/4.0</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/1ise312f.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f4_center.png" alt="示意图">
   <figcaption>TS35 中心放大</figcaption>
 </figure>
 
@@ -210,32 +210,32 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/2kykhip1.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1892.jpg" alt="示意图">
   <figcaption>35GM f/8.0</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/tr3fuf5d.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1892_r2_c1.png" alt="示意图">
   <figcaption>35GM 中心放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/x1hgykbp.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1892_r3_c3.png" alt="示意图">
   <figcaption>35GM 边角放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/qml2kiv2.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1895.jpg" alt="示意图">
   <figcaption>TS35 f/8.0</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/xlwtqjjz.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1895_r2_c1.png" alt="示意图">
   <figcaption>TS35 中心放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/o2xi0sha.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/远摄对比/_DSC1895_r3_c3.png" alt="示意图">
   <figcaption>TS35 边角放大</figcaption>
 </figure>
 
@@ -248,22 +248,22 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0sd1v4zy.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/色散对比/_DSC1911.jpg" alt="示意图">
   <figcaption>35GM f/1.4</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/fvepty1p.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/色散对比/_DSC1911_r2_c1.png" alt="示意图">
   <figcaption>35GM 中心放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0inoxwbx.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/色散对比/_DSC1913.jpg" alt="示意图">
   <figcaption>TS35 f/1.6</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/2suft0xr.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/色散对比/_DSC1913_r2_c1.jpg" alt="示意图">
   <figcaption>TS35 中心放大</figcaption>
 </figure>
 
@@ -276,12 +276,12 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ou4zpugu.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/抗眩光测试/_DSC1914.jpg" alt="示意图">
   <figcaption>35GM f/1.4</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/gnrd5wmq.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/抗眩光测试/_DSC1916.jpg" alt="示意图">
   <figcaption>TS35 f/1.6</figcaption>
 </figure>
 
@@ -296,12 +296,12 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/p4o5y0j3.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/虚化测试/_DSC1914_corner.png" alt="示意图">
   <figcaption>35GM 边角放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/n2obxeqa.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/虚化测试/_DSC1916_corner.png" alt="示意图">
   <figcaption>TS35 边角放大</figcaption>
 </figure>
 
@@ -312,12 +312,12 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/no55zlla.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/虚化测试/35GM_corner.png" alt="示意图">
   <figcaption>35GM 边角放大</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ygaajyrn.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/虚化测试/TS35_corner.png" alt="示意图">
   <figcaption>TS35 边角放大</figcaption>
 </figure>
 
@@ -330,17 +330,17 @@
 <div class="figure">
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0vswb4sy.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/光斑测试/_DSC1919.jpg" alt="示意图">
   <figcaption>35GM （对焦距离 0.25m）</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/k144penq.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/光斑测试/_DSC1922.jpg" alt="示意图">
   <figcaption>35GM （对焦距离 0.45m）</figcaption>
 </figure>
 
 <figure>
-  <img src="https://file.cc98.org/v4-upload/d/2025/1206/1s1zdaes.webp" alt="示意图">
+  <img src="./参考图片/实拍对比/光斑测试/_DSC1918.jpg" alt="示意图">
   <figcaption>TS35 （对焦距离 0.45m）</figcaption>
 </figure>
 

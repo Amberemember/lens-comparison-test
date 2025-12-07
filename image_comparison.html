@@ -50,7 +50,7 @@
       --select-border: #374151;
       --select-text: #e5e7eb;
 
-      --footer-text: #6b7280; /* 深色下依然用这个略灰的文字色 */
+      --footer-text: #6b7280;
     }
   }
 
@@ -62,7 +62,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 24px;
+    padding: 16px;
   }
 
   .compare-root {
@@ -121,6 +121,7 @@
     border: 1px solid var(--pane-border);
     cursor: grab;
     user-select: none;
+    touch-action: none; /* 禁止浏览器默认的手势缩放/拖动，交给 JS 处理 */
   }
 
   .compare-pane:active {
@@ -166,6 +167,10 @@
   }
 
   @media (max-width: 768px) {
+    body {
+      padding: 8px;
+    }
+
     .compare-main {
       flex-direction: column;
       height: 360px;
@@ -195,7 +200,7 @@
     </div>
 
     <div class="compare-footer">
-      <span>滚轮：缩放 | 按住拖动：平移</span>
+      <span>滚轮/双指：缩放 | 拖动/单指：平移</span>
       <span id="view-status"></span>
     </div>
   </div>
@@ -265,9 +270,20 @@
           originY: 0
         };
 
+        // 触摸状态：mode = null | "drag" | "pinch"
+        this.touchState = {
+          mode: null,
+          startX: 0,
+          startY: 0,
+          originX: 0,
+          originY: 0,
+          startDist: 0,
+          startScale: 1
+        };
+
         this.MIN_SCALE = 1;
         this.MAX_SCALE = 8;
-        this.DEFAULT_SCALE = 4;
+        this.DEFAULT_SCALE = 1;
 
         this.buildGroupSelect();
         this.setGroup(0);
@@ -316,17 +332,34 @@
 
       attachInteractions() {
         this.panes.forEach(pane => {
+          // 鼠标滚轮缩放
           pane.addEventListener(
             "wheel",
             (e) => this.onWheel(e),
             { passive: false }
           );
 
+          // 鼠标拖动
           pane.addEventListener("mousedown", (e) => this.onDragStart(e));
           window.addEventListener("mousemove", (e) => this.onDragMove(e));
           window.addEventListener("mouseup",   () => this.onDragEnd());
           pane.addEventListener("mouseleave",  () => this.onDragEnd());
+
+          // 触摸：手机端
+          pane.addEventListener(
+            "touchstart",
+            (e) => this.onTouchStart(e),
+            { passive: false }
+          );
         });
+
+        window.addEventListener(
+          "touchmove",
+          (e) => this.onTouchMove(e),
+          { passive: false }
+        );
+        window.addEventListener("touchend",   (e) => this.onTouchEnd(e));
+        window.addEventListener("touchcancel",(e) => this.onTouchEnd(e));
       }
 
       // 计算当前缩放下，X/Y 方向允许的最大平移范围
@@ -408,6 +441,93 @@
 
       onDragEnd() {
         this.dragging.active = false;
+      }
+
+      // ====== 触摸相关 ======
+      getSingleTouchPoint(e) {
+        const t = e.touches[0] || e.changedTouches[0];
+        if (!t) return null;
+        return { x: t.clientX, y: t.clientY };
+      }
+
+      getTouchDistance(e) {
+        if (e.touches.length < 2) return 0;
+        const t1 = e.touches[0];
+        const t2 = e.touches[1];
+        const dx = t2.clientX - t1.clientX;
+        const dy = t2.clientY - t1.clientY;
+        return Math.hypot(dx, dy);
+      }
+
+      onTouchStart(e) {
+        // 未放大也允许单指拖动吗？这里保持与鼠标行为一致：scale <= 1 不平移
+        if (e.touches.length === 1) {
+          // 单指拖动
+          if (this.state.scale <= 1) return;
+          const p = this.getSingleTouchPoint(e);
+          if (!p) return;
+          e.preventDefault();
+
+          this.touchState.mode = "drag";
+          this.touchState.startX = p.x;
+          this.touchState.startY = p.y;
+          this.touchState.originX = this.state.offsetX;
+          this.touchState.originY = this.state.offsetY;
+        } else if (e.touches.length >= 2) {
+          // 双指缩放
+          const dist = this.getTouchDistance(e);
+          if (!dist) return;
+          e.preventDefault();
+
+          this.touchState.mode = "pinch";
+          this.touchState.startDist = dist;
+          this.touchState.startScale = this.state.scale;
+        }
+      }
+
+      onTouchMove(e) {
+        if (!this.touchState.mode) return;
+
+        if (this.touchState.mode === "drag" && e.touches.length === 1) {
+          const p = this.getSingleTouchPoint(e);
+          if (!p) return;
+          e.preventDefault();
+
+          const dx = p.x - this.touchState.startX;
+          const dy = p.y - this.touchState.startY;
+
+          this.state.offsetX = this.touchState.originX + dx;
+          this.state.offsetY = this.touchState.originY + dy;
+
+          this.clampOffsets();
+          this.applyTransform();
+          this.updateStatus();
+        } else if (this.touchState.mode === "pinch" && e.touches.length >= 2) {
+          const dist = this.getTouchDistance(e);
+          if (!dist || !this.touchState.startDist) return;
+          e.preventDefault();
+
+          let newScale = this.touchState.startScale * (dist / this.touchState.startDist);
+          newScale = Math.max(this.MIN_SCALE, Math.min(this.MAX_SCALE, newScale));
+          this.state.scale = newScale;
+
+          this.clampOffsets();
+          this.applyTransform();
+          this.updateStatus();
+        } else {
+          // 手指数变化导致模式不匹配，直接结束此次操作
+          this.onTouchEnd(e);
+        }
+      }
+
+      onTouchEnd(e) {
+        // 所有手指离开后，重置模式
+        if (e.touches.length === 0) {
+          this.touchState.mode = null;
+        } else if (e.touches.length === 1 && this.touchState.mode === "pinch") {
+          // 从双指变成单指，可以在下一次 touchmove 重新进入 drag 模式
+          this.touchState.mode = null;
+        }
       }
 
       applyTransform() {

@@ -1,0 +1,337 @@
+<!DOCTYPE html><html><head>
+      <title>正文</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\22436\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.20\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<style>
+  .figure {
+    max-width: 1080px;      /* 可按需要调宽度，不想限制可以删掉这一行 */
+    margin: 1.5rem auto;   /* 居中 + 上下留白 */
+    text-align: center;
+  }
+
+  .figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .figure figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;   /* 小字 */
+    color: #777;         /* 浅灰 */
+    text-align: center;  /* 居中 */
+  }
+</style>
+<h1 id="百元-vs-万元探究100倍差价的相机镜头成像质量究竟有多大差别">百元 vs 万元？探究100倍差价的相机镜头成像质量究竟有多大差别 </h1>
+<p>本文为原创内容，<strong>请勿转载</strong>。</p>
+<h3 id="一-写在前面">一、写在前面 </h3>
+<p>本人非物理/光电专业学生，本文初衷为个人探索记录，并分享给8u们，仅代表个人观点，如有不实或者欠缺之处，欢迎批评指正。</p>
+<p>本测试所有器材均为自费购买，未接受任何厂商赞助，也不构成任何购买建议。</p>
+<p>近年来，随着国产镜头的崛起，越来越多的摄影爱好者开始关注性价比高的镜头产品。尤其是在定焦镜头领域，一些价格低廉的国产镜头凭借其出色的性价比，吸引了大量用户。然而，面对市场上动辄上万元的高端镜头，许多消费者不禁要问：价格差距如此之大，这些镜头在实际成像质量上到底有多大差别？</p>
+<p>本文将通过对比一款售价不到百元的国产定焦镜头与售价上万元的索尼原厂旗舰镜头，深入探讨两者在实际拍摄中的表现差异。我们将从光学性能、成像质量、操作体验等多个方面进行详细分析，并通过实拍样片进行直观对比，帮助读者更好地理解不同价位镜头之间的差异。</p>
+<p>如果您对前面的理论部分不感兴趣，建议直接跳转到实拍测试部分。</p>
+<h3 id="二-拍摄器材与拍摄设置">二、拍摄器材与拍摄设置 </h3>
+<h4 id="1-基本参数对比">1. 基本参数对比 </h4>
+<p>本文将主要对比两款不同类型的镜头：国产 TS35mmF1.6II 手动定焦镜头（由工业镜头改装而来）和索尼 （Sony）35mmF1.4GM 定焦镜头。以下是两款镜头的主要参数对比：</p>
+<table>
+<thead>
+<tr>
+<th>商品名称</th>
+<th>TS3516II</th>
+<th>SEL35F14GM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>售价</td>
+<td><strong>98元</strong></td>
+<td>11300元</td>
+</tr>
+<tr>
+<td>画幅</td>
+<td>APS-C</td>
+<td><strong>全画幅</strong></td>
+</tr>
+<tr>
+<td>镜头结构</td>
+<td>4组/4片</td>
+<td><strong>10组/14片</strong></td>
+</tr>
+<tr>
+<td>最大光圈</td>
+<td>f/1.6</td>
+<td><strong>f/1.4</strong></td>
+</tr>
+<tr>
+<td>光圈叶片</td>
+<td>9</td>
+<td><strong>11</strong></td>
+</tr>
+<tr>
+<td>最近对焦</td>
+<td>0.45米</td>
+<td><strong>0.25米</strong></td>
+</tr>
+<tr>
+<td>质量（g）</td>
+<td><strong>115</strong></td>
+<td>524</td>
+</tr>
+<tr>
+<td>自动对焦</td>
+<td>无</td>
+<td><strong>有</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ <strong>品牌说明：</strong></p>
+<p>经过对市场上多款百元级公模镜头的初步调研与比较，天色（TIASE）品牌所提供的产品规格及光学参数相对最为完整。因此，本文暂以该品牌下的 TS35mmF1.6II 镜头作为此类镜头的代表性型号进行后续分析与讨论。</p>
+</blockquote>
+<h4 id="2-镜头光学结构">2. 镜头光学结构： </h4>
+<div class="figure">
+  <figure>
+    <img src="https://file.cc98.org/v4-upload/d/2025/1203/ystez52l.webp" alt="TS35 MTF">
+    <figcaption>TS35：经典Tessar结构，设计简单，工艺成熟</figcaption>
+  </figure>
+  <figure>
+    <img src="https://file.cc98.org/v4-upload/d/2025/1203/2nntbfmr.webp" alt="35GM MTF">
+    <figcaption>35GM：明显设计更复杂，堆料更足</figcaption>
+  </figure>
+</div>
+<p>可以看到，百元售价的镜头结构比较简单，其使用的 Tessar 结构中心画质较为突出，但是边缘画质难以保证；而万元级别的镜头堆料更足，运用了多种特殊镜片和镀膜来矫正像差、提高画质，材料工艺专利品牌等因素拉高了镜头售价。</p>
+<h4 id="3-mtf对比">3. MTF对比： </h4>
+<div class="figure">
+  <figure>
+    <img src="https://file.cc98.org/v4-upload/d/2025/1203/os3s41zx.webp" alt="TS35 MTF">
+    <figcaption>TS35 MTF 曲线（f/1.6 vs f/5.6）</figcaption>
+  </figure>
+  <figure>
+    <img src="https://file.cc98.org/v4-upload/d/2025/1203/e415jwxa.webp" alt="35GM MTF">
+    <figcaption>35GM MTF 曲线（f/1.4 vs f/8.0）</figcaption>
+  </figure>
+</div>
+<blockquote>
+<p>📈 <strong>MTF曲线</strong></p>
+<p>MTF曲线可以标识一款镜头的理论光学性能。一般来说，MTF曲线整体越高，说明镜头光学分辨率越高；曲线整体越平直，说明中心和边缘画质差距越小；同颜色实线虚线贴合越近，说明镜头色散越小。</p>
+<p>关于MTF曲线的更多内容，可以参考以下视频：<a href="https://www.bilibili.com/video/BV1B888zuEsA/?share_source=copy_web&amp;vd_source=271aad73727f77d0778476fcede6d9a8">【光学设计基础】镜头的MTF光学原理</a></p>
+</blockquote>
+<p>从 MTF 中可以看到，TS35使用的工业镜头应该是针对小尺寸传感器进行优化，中心分辨率上表现尚可，但是距离镜头光学中心超过 9.6mm 之后，画质急剧下降（范围介于1英寸底到 m43 画幅之间，而 apsc 画幅的 14.1mm 甚至没有出现在 MTF 图内，说明这颗镜头设计之初，很可能并没有考虑到apsc画幅相机的使用）；而 35GM 的 MTF 图则在整个全画幅范围内，中心和边缘分辨率上都表现优秀，色散控制也较好。</p>
+<p>当然，MTF曲线图仅仅是理论数据，实际成像效果还是需要通过实拍来进行验证。</p>
+<h4 id="4-镜头外观">4. 镜头外观 </h4>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1205/j1s0rm14.webp" alt="示意图">
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1205/spc5jqel.webp" alt="示意图">
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1205/lpgvsrak.webp" alt="示意图">
+</figure>
+</div>
+<p>以上图片均为本人实拍。</p>
+<p>可以看到，TS35mmF1.6II 虽然售价低廉，但意外的是它居然是全金属镜身，做工扎实，手感不错。<s>（在此点名夸赞某大清光学厂）</s> 包装包含一个遮光罩，镜头本体和一个cctv口转索尼e口的转接环，整体的体积和重量都非常轻巧。而且最重要的是，这个镜头居然是有光学镀膜的！这在百元镜头中实属罕见。</p>
+<p>在操作体验方面，TS35mmF1.6II 采用纯手动对焦与光圈调节设计。由于镜身体积较小，握持时缺乏足够的着力点，操作手感较为局促。此外，镜头与转接环之间采用螺纹连接，该连接结构在频繁手动对焦时容易发生松动，并可能因误触导致光圈值意外改变。另一方面，镜头遮光罩同样依赖螺纹安装，但在安装前若已盖上镜头盖，则会遮挡部分螺纹接口，致使遮光罩无法正常安装。</p>
+<h4 id="5-测试环境与拍摄设置">5. 测试环境与拍摄设置 </h4>
+<p>测试机身选用索尼a7r3，关闭镜头补偿，开启apsc模式，拍摄设置为M档，所有参数保持一致，拍摄时使用三脚架固定，仅更换镜头进行对比拍摄。</p>
+<p>由于全画幅转换到apsc画幅会经历一定的像素裁切，转换后等效全幅焦距52.5mm，等效像素1800万。</p>
+<blockquote>
+<p>ℹ️ <strong>测试说明：</strong></p>
+<p>尽管1800万像素低于主流 apsc 相机的2400万像素，但在对比测试中完全足够。本次重点在于呈现两款镜头的相对差异，而非极限分辨率。</p>
+</blockquote>
+<h3 id="三-实拍测试">三、实拍测试 </h3>
+<h4 id="1-像场测试">1. 像场测试 </h4>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1207/0qn45pd2.webp" alt="示意图">
+  <figcaption>红色与蓝色矩形分别表示apsc画幅和m43画幅</figcaption>
+</figure>
+</div>
+<p>由于索尼 35GM 作为全画幅镜头，其成像圈设计可完全覆盖全画幅传感器，故本节仅测试TS35的像场覆盖。测试发现：其成像圈可完整覆盖M4/3画幅，并勉强覆盖APS-C画幅。由于APS-C像场已接近镜头极限，用于该画幅时，边缘可能会出现画质衰减。（这可以在前面的MTF曲线分析和后面的测试中得到印证）</p>
+<h4 id="2-近摄测试">2. 近摄测试 </h4>
+<p>近摄测试距离设定为 TS35 的标称最近对焦距离 0.45 m，主要用于评估镜头在近摄条件下的中心分辨率与背景虚化特性（包括虚化形状、过渡平滑程度以及主体与背景的分离感）。</p>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/drkiecdm.webp" alt="示意图">
+  <figcaption>35GM f/1.4</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/iu5xo2ob.webp" alt="示意图">
+  <figcaption>35GM 中心放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/tj4jrzd4.webp" alt="示意图">
+  <figcaption>TS35 f/1.6</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ngshi54h.webp" alt="示意图">
+  <figcaption>TS35 中心放大</figcaption>
+</figure>
+</div>
+<p>可以看到，在光圈全开下，两个镜头都可以得到不错的虚化效果，但是 35GM 的虚化更加柔和自然，过渡更为平滑，而 TS35 的虚化则显得有些生硬，边缘过渡不够自然。中心分辨率方面，35GM 表现出色，细节丰富且锐利，而 TS35 在中心区域虽然也能捕捉到一定的细节，但整体锐度明显不足，细节表现较为模糊。</p>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/cs44p0rk.webp" alt="示意图">
+  <figcaption>35GM f/4.0</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/4a2f2mao.webp" alt="示意图">
+  <figcaption>35GM 中心放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/4ek4pwmi.webp" alt="示意图">
+  <figcaption>TS35 f/4.0</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/1ise312f.webp" alt="示意图">
+  <figcaption>TS35 中心放大</figcaption>
+</figure>
+</div>
+<p>光圈缩到 f/4.0 后，两个镜头的锐度都有明显提升，细节表现更加清晰，不过总体而言还是 35GM 锐度更为出色。</p>
+<h4 id="3-远景测试">3. 远景测试 </h4>
+<p>主要测试镜头在远景拍摄时的中心和边缘锐度表现。</p>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/2kykhip1.webp" alt="示意图">
+  <figcaption>35GM f/8.0</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/tr3fuf5d.webp" alt="示意图">
+  <figcaption>35GM 中心放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/x1hgykbp.webp" alt="示意图">
+  <figcaption>35GM 边角放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/qml2kiv2.webp" alt="示意图">
+  <figcaption>TS35 f/8.0</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/xlwtqjjz.webp" alt="示意图">
+  <figcaption>TS35 中心放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/o2xi0sha.webp" alt="示意图">
+  <figcaption>TS35 边角放大</figcaption>
+</figure>
+</div>
+<p>可以看到，在远景拍摄中，35GM 在中心和边缘的锐度表现都非常出色，细节丰富且清晰；而 TS35 在中心区域虽然表现尚可，但边缘锐度明显不足，细节模糊不清，这与我们之前的MTF曲线分析结果相符。</p>
+<h4 id="4-色散测试">4. 色散测试 </h4>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0sd1v4zy.webp" alt="示意图">
+  <figcaption>35GM f/1.4</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/fvepty1p.webp" alt="示意图">
+  <figcaption>35GM 中心放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0inoxwbx.webp" alt="示意图">
+  <figcaption>TS35 f/1.6</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/2suft0xr.webp" alt="示意图">
+  <figcaption>TS35 中心放大</figcaption>
+</figure>
+</div>
+<p>可以看到，在全开光圈下，两支镜头的色散控制均相当出色，画面中基本未出现明显色边。甚至可以说，TS35 在色散抑制方面相对 35GM 略有优势：实拍过程中并未观察到明显且干扰观感的色边现象。不过，在细节解析力上，35GM 仍然占据上风，画面细节更加丰富，边缘轮廓也更加干净锐利。</p>
+<h4 id="5-抗炫光测试">5. 抗炫光测试 </h4>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ou4zpugu.webp" alt="示意图">
+  <figcaption>35GM f/1.4</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/gnrd5wmq.webp" alt="示意图">
+  <figcaption>TS35 f/1.6</figcaption>
+</figure>
+</div>
+<p>在抗眩光表现方面，35GM 整体略占上风，画面对比度相对更高、层次也更加稳定。不过 TS35 仅略逊一筹，实际表现并不逊色：在强光源直射或接近画面边缘的条件下，并未出现明显炫光与鬼影干扰，画面对比度保持良好，整体表现明显好于预期。</p>
+<h4 id="6-虚化测试">6. 虚化测试 </h4>
+<p>借用前几节中的样张，放大观察两支镜头的虚化效果。</p>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/p4o5y0j3.webp" alt="示意图">
+  <figcaption>35GM 边角放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/n2obxeqa.webp" alt="示意图">
+  <figcaption>TS35 边角放大</figcaption>
+</figure>
+</div>
+<p>可以看到，35GM 对背景高反差小高光的处理更加自然，虚化光斑轮廓相对柔和，亮度由中心向边缘过渡较为平滑，整体背景显得比较干净。而 TS35 的虚化光斑边缘亮度明显集中，轮廓偏硬，叠加在一起后使背景显得较为杂乱，整体焦外观感明显逊于 35GM。</p>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/no55zlla.webp" alt="示意图">
+  <figcaption>35GM 边角放大</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/ygaajyrn.webp" alt="示意图">
+  <figcaption>TS35 边角放大</figcaption>
+</figure>
+</div>
+<p>不过，在被摄物与背景相距较远，且背景亮度反差小的条件下，TS35 与 35GM 的虚化表现相近。</p>
+<h4 id="7-光斑测试">7. 光斑测试 </h4>
+<div class="figure">
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/0vswb4sy.webp" alt="示意图">
+  <figcaption>35GM （对焦距离 0.25m）</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/k144penq.webp" alt="示意图">
+  <figcaption>35GM （对焦距离 0.45m）</figcaption>
+</figure>
+<figure>
+  <img src="https://file.cc98.org/v4-upload/d/2025/1206/1s1zdaes.webp" alt="示意图">
+  <figcaption>TS35 （对焦距离 0.45m）</figcaption>
+</figure>
+</div>
+<p>在近摄条件下，由于 35GM 的最近对焦距离更短，当两支镜头分别工作在各自的最小对焦距离时，35GM 在相同构图下能够形成更大的焦外光斑。另一方面，当两支镜头均对焦于 0.45 m 时，放大倍率基本一致，此时两者背景高光形成的虚化光斑直径相近，尺寸形状差异并不明显。不过，35GM 的光斑亮度更加均匀，边缘过渡更为自然。</p>
+<h3 id="四-总结归纳">四、总结归纳 </h3>
+<p>通过测试，我们可以发现，索尼 35GM 确实不负其万元旗舰镜头的称号，无论是在锐度、色散控制、抗眩光还是虚化效果等方面，都表现出色，整体成像质量优异。不过，TS35mmF1.6II 作为一款百元级别的镜头，其表现也超出了预期。在中心锐度、色散控制和抗眩光方面，TS35 展现出令人惊讶的实力。在工业高度发达的今天，光学设计和制造技术的进步使得低价镜头也能具备一定的成像质量。</p>
+<p>这背后折射出一个更深层的逻辑：在镜头这类精密光学产品上，价格与性能并非线性关系，而是显著的边际递减。因此，选择镜头的本质，是寻找个人需求、创作阶段与预算约束之间的平衡点。无论是用百元镜头探索世界，还是用万元工具追逐极致，都值得尊重。真正重要的是，我们应透过镜片去理解光，通过取景器去看见美——毕竟，驱动相机的那份观察与思考，远比相机前端的任何一枚镜头都更为珍贵。</p>
+<p>希望本文能为大家在选择器材时提供一些参考和启发。摄影的乐趣不仅在于追求技术的极致，更在于用心去捕捉和表达生活中的美好瞬间。无论你手中的器材价格如何，最重要的是用它去记录你所热爱的世界。</p>
+<h3 id="五-参考资料">五、参考资料 </h3>
+<p><a href="https://www.cc98.org/topic/5709481">新一篇的两万字长文，时隔半年再来聊聊相机和摄影</a></p>
+<p><a href="https://www.bilibili.com/video/BV1jJg3zvEDx/?share_source=copy_web&amp;vd_source=271aad73727f77d0778476fcede6d9a8">贵就是好？镜头之间的差距，到底在哪</a></p>
+<p><a href="https://www.bilibili.com/video/BV1ui4y1r7We/?share_source=copy_web&amp;vd_source=271aad73727f77d0778476fcede6d9a8">发明摄影前，人类发明了镜头</a></p>
+<p><a href="https://www.bilibili.com/video/BV1t24y1k7Ye">用动画的方式揭开光圈和景深的秘密——掌控曝光（—）</a></p>
+<p><a href="https://www.bilibili.com/video/BV1B888zuEsA/?share_source=copy_web&amp;vd_source=271aad73727f77d0778476fcede6d9a8">【光学设计基础】镜头的MTF光学原理</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

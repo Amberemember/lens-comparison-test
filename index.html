@@ -14,7 +14,93 @@
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
-      </style>
+:root {
+    /* 告诉浏览器：页面支持 light/dark 两种颜色方案 */
+    color-scheme: light dark;
+  }
+
+  /* 深色模式下的覆盖样式 */
+  @media (prefers-color-scheme: dark) {
+    /* 页面整体背景 + 文字 */
+    html body{
+      color:#e5e7eb;
+      background-color:#020617;
+    }
+
+    /* 标题、加粗等 */
+    html body h1,
+    html body h2,
+    html body h3,
+    html body h4,
+    html body h5,
+    html body h6{
+      color:#f9fafb;
+    }
+    html body strong{
+      color:#f9fafb;
+    }
+    html body del{
+      color:#9ca3af;
+    }
+
+    /* 链接颜色在深色下稍微亮一点 */
+    html body a{
+      color:#38bdf8;
+    }
+    html body a:hover{
+      color:#0ea5e9;
+    }
+
+    /* 行内代码与代码块背景 */
+    html body code{
+      color:#e5e7eb;
+      background-color:#111827;
+    }
+
+    html body .highlight pre,
+    html body pre{
+      background-color:#111827;
+      border-color:#374151;
+    }
+
+    /* Prism 代码块 */
+    pre[class*=language-]{
+      background:#111827;
+      color:#e5e7eb;
+    }
+    :not(pre)>code[class*=language-]{
+      background:#111827;
+      color:#e5e7eb;
+    }
+
+    /* 引用块 */
+    html body blockquote{
+      color:#e5e7eb;
+      background-color:#111827;
+      border-left-color:#4b5563;
+    }
+
+    /* 分隔线、表格边框等 */
+    html body hr{
+      background-color:#4b5563;
+    }
+    html body table td,
+    html body table th{
+      border-color:#4b5563;
+    }
+    html body table th{
+      color:#e5e7eb;
+    }
+
+    /* 键盘样式 */
+    html body kbd{
+      color:#e5e7eb;
+      background-color:#111827;
+      border-color:#4b5563;
+      border-bottom-color:#374151;
+    }
+  }
+</style>
       <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function () {
     // your code here
@@ -212,6 +298,13 @@
 </figure>
 </div>
 <p>光圈缩到 f/4.0 后，两个镜头的锐度都有明显提升，细节表现更加清晰，不过总体而言还是 35GM 锐度更为出色。</p>
+
+<iframe
+  src="image_comparison.html"
+  style="width: 100%; max-width: 1100px; height: 570px; border: none; border-radius: 12px; overflow: hidden;"
+  loading="lazy"
+></iframe>
+
 <h4 id="3-远景测试">3. 远景测试 </h4>
 <p>主要测试镜头在远景拍摄时的中心和边缘锐度表现。</p>
 <div class="figure">

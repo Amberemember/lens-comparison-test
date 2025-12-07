@@ -4,128 +4,175 @@
   <meta charset="UTF-8" />
   <title>Image Comparison</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #111827;
-      color: #e5e7eb;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 24px;
-    }
+  :root {
+    /* 告诉浏览器这个页面支持 light/dark 两种颜色模式 */
+    color-scheme: light dark;
 
-    .compare-root {
-      width: 100%;
-      max-width: 1100px;
-      border-radius: 12px;
-      background: #020617;
-      border: 1px solid #1f2937;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-      padding: 16px 16px 20px;
-    }
+    /* ===== 默认：浅色主题 ===== */
+    --page-bg: #f9fafb;
+    --page-text: #111827;
 
-    .compare-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      gap: 12px;
-    }
+    --compare-bg: #ffffff;
+    --compare-border: #d1d5db;
+    --compare-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
 
-    .compare-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #f9fafb;
-    }
+    --pane-bg: #f9fafb;
+    --pane-border: #e5e7eb;
 
-    .compare-groups {
-      display: flex;
-      justify-content: flex-end;
-    }
+    --select-bg: #ffffff;
+    --select-border: #d1d5db;
+    --select-text: #111827;
 
-    .compare-groups select {
-      border-radius: 999px;
-      border: 1px solid #374151;
-      background: #020617;
-      padding: 4px 10px;
-      font-size: 13px;
-      color: #e5e7eb;
-      cursor: pointer;
-      outline: none;
-    }
+    --label-bg: rgba(15, 23, 42, 0.85);
+    --label-border: rgba(55, 65, 81, 0.9);
 
+    --footer-text: #6b7280;
+  }
+
+  /* ===== 深色主题：覆盖变量 ===== */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page-bg: #111827;
+      --page-text: #e5e7eb;
+
+      --compare-bg: #020617;
+      --compare-border: #1f2937;
+      --compare-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+      --pane-bg: #020617;
+      --pane-border: #1f2937;
+
+      --select-bg: #020617;
+      --select-border: #374151;
+      --select-text: #e5e7eb;
+
+      --footer-text: #6b7280; /* 深色下依然用这个略灰的文字色 */
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--page-bg);
+    color: var(--page-text);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px;
+  }
+
+  .compare-root {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 12px;
+    background: var(--compare-bg);
+    border: 1px solid var(--compare-border);
+    box-shadow: var(--compare-shadow);
+    padding: 16px 16px 20px;
+  }
+
+  .compare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+
+  .compare-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--page-text);
+  }
+
+  .compare-groups {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .compare-groups select {
+    border-radius: 999px;
+    border: 1px solid var(--select-border);
+    background: var(--select-bg);
+    padding: 4px 10px;
+    font-size: 13px;
+    color: var(--select-text);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .compare-main {
+    display: flex;
+    gap: 8px;
+    height: 420px;
+    margin-top: 4px;
+  }
+
+  .compare-pane {
+    flex: 1;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--pane-bg);
+    border: 1px solid var(--pane-border);
+    cursor: grab;
+    user-select: none;
+  }
+
+  .compare-pane:active {
+    cursor: grabbing;
+  }
+
+  .compare-pane-label {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--label-bg);
+    border: 1px solid var(--label-border);
+    font-size: 11px;
+    color: #e5e7eb;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .compare-pane img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform-origin: center center;
+    transform: translate(0px, 0px) scale(1);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .compare-footer {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--footer-text);
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .compare-footer span {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
     .compare-main {
-      display: flex;
-      gap: 8px;
-      height: 420px;
-      margin-top: 4px;
+      flex-direction: column;
+      height: 360px;
     }
+  }
+</style>
 
-    .compare-pane {
-      flex: 1;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #020617;
-      border: 1px solid #1f2937;
-      cursor: grab;
-      user-select: none;
-    }
-
-    .compare-pane:active {
-      cursor: grabbing;
-    }
-
-    .compare-pane-label {
-      position: absolute;
-      top: 8px;
-      left: 8px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      font-size: 11px;
-      color: #e5e7eb;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .compare-pane img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      transform-origin: center center;
-      transform: translate(0px, 0px) scale(1);
-      will-change: transform;
-      pointer-events: none;
-    }
-
-    .compare-footer {
-      margin-top: 8px;
-      font-size: 12px;
-      color: #6b7280;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .compare-footer span {
-      white-space: nowrap;
-    }
-
-    @media (max-width: 768px) {
-      .compare-main {
-        flex-direction: column;
-        height: 360px;
-      }
-    }
-  </style>
 </head>
 <body>
   <div class="compare-root" id="compare-root">

@@ -267,6 +267,7 @@
 
         this.MIN_SCALE = 1;
         this.MAX_SCALE = 8;
+        this.DEFAULT_SCALE = 4;
 
         this.buildGroupSelect();
         this.setGroup(0);
@@ -302,7 +303,7 @@
         this.images[1].src = group.right;
 
         // 重置视图
-        this.state.scale = 1;
+        this.state.scale = this.DEFAULT_SCALE;
         this.state.offsetX = 0;
         this.state.offsetY = 0;
         this.clampOffsets();

@@ -10,7 +10,7 @@
       
       
       <style>
-      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
@@ -202,7 +202,7 @@
   <figure>
     <a href="./参考图片/镜头结构设计/TS35.jpg" target="_blank">
       <img src="./参考图片/镜头结构设计/TS35-compressed.webp" 
-           alt="TS35 MTF"
+           alt="TS35 镜头结构：经典 Tessar 结构，设计简单，工艺成熟"
            loading="lazy">
     </a>
     <figcaption>TS35：经典Tessar结构，设计简单，工艺成熟</figcaption>
@@ -210,7 +210,7 @@
   <figure>
     <a href="./参考图片/镜头结构设计/35gm.png" target="_blank">
       <img src="./参考图片/镜头结构设计/35gm-compressed.webp" 
-           alt="35GM MTF"
+           alt="35GM 镜头结构示意：设计更复杂，堆料更足"
            loading="lazy">
     </a>
     <figcaption>35GM：明显设计更复杂，堆料更足</figcaption>
@@ -222,7 +222,7 @@
   <figure>
     <a href="./参考图片/镜头结构设计/TS35_mtf.jpg" target="_blank">
       <img src="./参考图片/镜头结构设计/TS35_mtf-compressed.webp" 
-           alt="TS35 MTF"
+           alt="TS35 MTF 曲线（f/1.6 与 f/5.6 对比）"
            loading="lazy">
     </a>
     <figcaption>TS35 MTF 曲线（f/1.6 vs f/5.6）</figcaption>
@@ -230,7 +230,7 @@
   <figure>
     <a href="./参考图片/镜头结构设计/35gm_mtf.png" target="_blank">
       <img src="./参考图片/镜头结构设计/35gm_mtf-compressed.webp" 
-           alt="35GM MTF"
+           alt="35GM MTF 曲线（f/1.4 与 f/8.0 对比）"
            loading="lazy">
     </a>
     <figcaption>35GM MTF 曲线（f/1.4 vs f/8.0）</figcaption>
@@ -248,21 +248,21 @@
 <figure>
   <a href="./参考图片/产品实拍图/_DSC1840.jpg" target="_blank">
     <img src="./参考图片/产品实拍图/_DSC1840-compressed.webp" 
-         alt="示意图"
+         alt="镜头外观实拍 1：镜头与机身展示"
          loading="lazy">
   </a>
 </figure>
 <figure>
   <a href="./参考图片/产品实拍图/_DSC1846.jpg" target="_blank">
     <img src="./参考图片/产品实拍图/_DSC1846-compressed.webp" 
-         alt="示意图"
+         alt="镜头外观实拍 2：镜头正面细节"
          loading="lazy">
   </a>
 </figure>
 <figure>
   <a href="./参考图片/产品实拍图/_DSC1842.jpg" target="_blank">
     <img src="./参考图片/产品实拍图/_DSC1842-compressed.webp" 
-         alt="示意图"
+         alt="镜头外观实拍 3：镜头与包装配件"
          loading="lazy">
   </a>
 </figure>
@@ -283,7 +283,7 @@
 <figure>
   <a href="./参考图片/实拍对比/相场.jpg" target="_blank">
     <img src="./参考图片/实拍对比/相场-compressed.webp" 
-         alt="示意图"
+         alt="相场测试图：红色为 APS-C 画幅，蓝色为 M4/3 画幅"
          loading="lazy">
   </a>
   <figcaption>红色与蓝色矩形分别表示apsc画幅和m43画幅</figcaption>
@@ -296,7 +296,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4.jpg" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4-compressed.webp" 
-         alt="示意图"
+         alt="35GM 近摄样张，光圈 f/1.4"
          loading="lazy">
   </a>
   <figcaption>35GM f/1.4</figcaption>
@@ -304,7 +304,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4_center.png" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f1.4_center-compressed.webp" 
-         alt="示意图"
+         alt="35GM 近摄中心放大，光圈 f/1.4"
          loading="lazy">
   </a>
   <figcaption>35GM 中心放大</figcaption>
@@ -312,7 +312,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6.jpg" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6-compressed.webp" 
-         alt="示意图"
+         alt="TS35 近摄样张，光圈 f/1.6"
          loading="lazy">
   </a>
   <figcaption>TS35 f/1.6</figcaption>
@@ -320,7 +320,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6_center.png" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f1.6_center-compressed.webp" 
-         alt="示意图"
+         alt="TS35 近摄中心放大，光圈 f/1.6"
          loading="lazy">
   </a>
   <figcaption>TS35 中心放大</figcaption>
@@ -331,7 +331,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/35GM_近摄/f4.jpg" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f4-compressed.webp" 
-         alt="示意图"
+         alt="35GM 近摄样张，光圈 f/4.0"
          loading="lazy">
   </a>
   <figcaption>35GM f/4.0</figcaption>
@@ -339,7 +339,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/35GM_近摄/f4_center.png" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/35GM_近摄/f4_center-compressed.webp" 
-         alt="示意图"
+         alt="35GM 近摄中心放大，光圈 f/4.0"
          loading="lazy">
   </a>
   <figcaption>35GM 中心放大</figcaption>
@@ -347,7 +347,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/TS35_近摄/f4.jpg" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f4-compressed.webp" 
-         alt="示意图"
+         alt="TS35 近摄样张，光圈 f/4.0"
          loading="lazy">
   </a>
   <figcaption>TS35 f/4.0</figcaption>
@@ -355,7 +355,7 @@
 <figure>
   <a href="./参考图片/实拍对比/近摄对比/TS35_近摄/f4_center.png" target="_blank">
     <img src="./参考图片/实拍对比/近摄对比/TS35_近摄/f4_center-compressed.webp" 
-         alt="示意图"
+         alt="TS35 近摄中心放大，光圈 f/4.0"
          loading="lazy">
   </a>
   <figcaption>TS35 中心放大</figcaption>
@@ -375,7 +375,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1892.jpg" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1892-compressed.webp" 
-         alt="示意图"
+         alt="35GM 远景样张，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>35GM f/8.0</figcaption>
@@ -383,7 +383,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1892_r2_c1.png" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1892_r2_c1-compressed.webp" 
-         alt="示意图"
+         alt="35GM 远景中心放大，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>35GM 中心放大</figcaption>
@@ -391,7 +391,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1892_r3_c3.png" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1892_r3_c3-compressed.webp" 
-         alt="示意图"
+         alt="35GM 远景边角放大，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>35GM 边角放大</figcaption>
@@ -399,7 +399,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1895.jpg" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1895-compressed.webp" 
-         alt="示意图"
+         alt="TS35 远景样张，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>TS35 f/8.0</figcaption>
@@ -407,7 +407,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1895_r2_c1.png" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1895_r2_c1-compressed.webp" 
-         alt="示意图"
+         alt="TS35 远景中心放大，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>TS35 中心放大</figcaption>
@@ -415,7 +415,7 @@
 <figure>
   <a href="./参考图片/实拍对比/远摄对比/_DSC1895_r3_c3.png" target="_blank">
     <img src="./参考图片/实拍对比/远摄对比/_DSC1895_r3_c3-compressed.webp" 
-         alt="示意图"
+         alt="TS35 远景边角放大，光圈 f/8.0"
          loading="lazy">
   </a>
   <figcaption>TS35 边角放大</figcaption>
@@ -434,7 +434,7 @@
 <figure>
   <a href="./参考图片/实拍对比/色散对比/_DSC1911.jpg" target="_blank">
     <img src="./参考图片/实拍对比/色散对比/_DSC1911-compressed.webp" 
-         alt="示意图"
+         alt="35GM 色散测试样张，光圈 f/1.4"
          loading="lazy">
   </a>
   <figcaption>35GM f/1.4</figcaption>
@@ -442,7 +442,7 @@
 <figure>
   <a href="./参考图片/实拍对比/色散对比/_DSC1911_r2_c1.png" target="_blank">
     <img src="./参考图片/实拍对比/色散对比/_DSC1911_r2_c1-compressed.webp" 
-         alt="示意图"
+         alt="35GM 色散测试中心放大，光圈 f/1.4"
          loading="lazy">
   </a>
   <figcaption>35GM 中心放大</figcaption>
@@ -450,7 +450,7 @@
 <figure>
   <a href="./参考图片/实拍对比/色散对比/_DSC1913.jpg" target="_blank">
     <img src="./参考图片/实拍对比/色散对比/_DSC1913-compressed.webp" 
-         alt="示意图"
+         alt="TS35 色散测试样张，光圈 f/1.6"
          loading="lazy">
   </a>
   <figcaption>TS35 f/1.6</figcaption>
@@ -458,7 +458,7 @@
 <figure>
   <a href="./参考图片/实拍对比/色散对比/_DSC1913_r2_c1.jpg" target="_blank">
     <img src="./参考图片/实拍对比/色散对比/_DSC1913_r2_c1-compressed.webp" 
-         alt="示意图"
+         alt="TS35 色散测试中心放大，光圈 f/1.6"
          loading="lazy">
   </a>
   <figcaption>TS35 中心放大</figcaption>
@@ -477,7 +477,7 @@
 <figure>
   <a href="./参考图片/实拍对比/抗眩光测试/_DSC1932.jpg" target="_blank">
     <img src="./参考图片/实拍对比/抗眩光测试/_DSC1932-compressed.webp" 
-         alt="示意图"
+         alt="35GM 抗炫光与星芒测试样张，光圈 f/16"
          loading="lazy">
   </a>
   <figcaption>35GM f/16</figcaption>
@@ -485,7 +485,7 @@
 <figure>
   <a href="./参考图片/实拍对比/抗眩光测试/_DSC1934.jpg" target="_blank">
     <img src="./参考图片/实拍对比/抗眩光测试/_DSC1934-compressed.webp" 
-         alt="示意图"
+         alt="TS35 抗炫光与星芒测试样张，光圈 f/16"
          loading="lazy">
   </a>
   <figcaption>TS35 f/16</figcaption>
@@ -497,7 +497,7 @@
 <figure>
   <a href="./参考图片/实拍对比/抗眩光测试/_DSC1914.jpg" target="_blank">
     <img src="./参考图片/实拍对比/抗眩光测试/_DSC1914-compressed.webp" 
-         alt="示意图"
+         alt="35GM 抗炫光测试样张，光圈 f/1.4"
          loading="lazy">
   </a>
   <figcaption>35GM f/1.4</figcaption>
@@ -505,7 +505,7 @@
 <figure>
   <a href="./参考图片/实拍对比/抗眩光测试/_DSC1916.jpg" target="_blank">
     <img src="./参考图片/实拍对比/抗眩光测试/_DSC1916-compressed.webp" 
-         alt="示意图"
+         alt="TS35 抗炫光测试样张，光圈 f/1.6"
          loading="lazy">
   </a>
   <figcaption>TS35 f/1.6</figcaption>
@@ -514,7 +514,7 @@
 <p>在抗眩光表现方面，35GM 整体略占上风，画面对比度相对更高、层次也更加稳定。不过 TS35 仅略逊一筹：在强光源直射或接近画面边缘的条件下，并未出现明显炫光与鬼影干扰，画面对比度保持良好，整体表现明显好于预期。</p>
 
 <iframe
-  src="image_comparison_lamp.html"
+  src="image_comparison_light.html"
   style="width: 100%; max-width: 1100px; height: 565px; border: none; border-radius: 12px; overflow: hidden;"
   loading="lazy"
 ></iframe>
@@ -525,7 +525,7 @@
 <figure>
   <a href="./参考图片/实拍对比/虚化测试/_DSC1914_corner.png" target="_blank">
     <img src="./参考图片/实拍对比/虚化测试/_DSC1914_corner-compressed.webp" 
-         alt="示意图"
+         alt="35GM 虚化测试边角放大"
          loading="lazy">
   </a>
   <figcaption>35GM 边角放大</figcaption>
@@ -533,7 +533,7 @@
 <figure>
   <a href="./参考图片/实拍对比/虚化测试/_DSC1916_corner.png" target="_blank">
     <img src="./参考图片/实拍对比/虚化测试/_DSC1916_corner-compressed.webp" 
-         alt="示意图"
+         alt="TS35 虚化测试边角放大"
          loading="lazy">
   </a>
   <figcaption>TS35 边角放大</figcaption>
@@ -544,7 +544,7 @@
 <figure>
   <a href="./参考图片/实拍对比/虚化测试/35GM_corner.png" target="_blank">
     <img src="./参考图片/实拍对比/虚化测试/35GM_corner-compressed.webp" 
-         alt="示意图"
+         alt="35GM 虚化测试样张边角放大"
          loading="lazy">
   </a>
   <figcaption>35GM 边角放大</figcaption>
@@ -552,7 +552,7 @@
 <figure>
   <a href="./参考图片/实拍对比/虚化测试/TS35_corner.png" target="_blank">
     <img src="./参考图片/实拍对比/虚化测试/TS35_corner-compressed.webp" 
-         alt="示意图"
+         alt="TS35 虚化测试样张边角放大"
          loading="lazy">
   </a>
   <figcaption>TS35 边角放大</figcaption>
@@ -564,7 +564,7 @@
 <figure>
   <a href="./参考图片/实拍对比/光斑测试/_DSC1919.jpg" target="_blank">
     <img src="./参考图片/实拍对比/光斑测试/_DSC1919-compressed.webp" 
-         alt="示意图"
+         alt="35GM 光斑测试样张，对焦距离 0.25m"
          loading="lazy">
   </a>
   <figcaption>35GM （对焦距离 0.25m）</figcaption>
@@ -572,7 +572,7 @@
 <figure>
   <a href="./参考图片/实拍对比/光斑测试/_DSC1922.jpg" target="_blank">
     <img src="./参考图片/实拍对比/光斑测试/_DSC1922-compressed.webp" 
-         alt="示意图"
+         alt="35GM 光斑测试样张，对焦距离 0.45m"
          loading="lazy">
   </a>
   <figcaption>35GM （对焦距离 0.45m）</figcaption>
@@ -580,7 +580,7 @@
 <figure>
   <a href="./参考图片/实拍对比/光斑测试/_DSC1918.jpg" target="_blank">
     <img src="./参考图片/实拍对比/光斑测试/_DSC1918-compressed.webp" 
-         alt="示意图"
+         alt="TS35 光斑测试样张，对焦距离 0.45m"
          loading="lazy">
   </a>
   <figcaption>TS35 （对焦距离 0.45m）</figcaption>
@@ -589,7 +589,6 @@
 <p>在近摄条件下，由于 35GM 的最近对焦距离更短，当两支镜头分别工作在各自的最小对焦距离时，35GM 在相同构图下能够形成更大的焦外光斑。另一方面，当两支镜头均对焦于 0.45 m 时，放大倍率基本一致，此时两者背景高光形成的虚化光斑直径相近，尺寸形状差异并不明显。不过，35GM 的光斑亮度更加均匀，边缘过渡更为自然。</p>
 <h3 id="四-总结归纳">四、总结归纳 </h3>
 <p>通过测试，我们可以发现，索尼 35GM 确实不负其万元旗舰镜头的称号，无论是在锐度、色散控制、抗眩光还是虚化效果等方面，都表现出色，整体成像质量优异。不过，TS35mmF1.6II 作为一款百元级别的镜头，其表现也超出了预期。在中心锐度、色散控制和抗眩光方面，TS35 展现出令人惊讶的实力。在工业高度发达的今天，光学设计和制造技术的进步使得低价镜头也能具备一定的成像质量。</p>
-<p>这背后折射出一个更深层的逻辑：在镜头这类精密光学产品上，价格与性能并非线性关系，而是显著的边际递减。因此，选择镜头的本质，是寻找个人需求、创作阶段与预算约束之间的平衡点。无论是用百元镜头探索世界，还是用万元工具追逐极致，都值得尊重。真正重要的是，我们应透过镜片去理解光，通过取景器去看见美——毕竟，驱动相机的那份观察与思考，远比相机前端的任何一枚镜头都更为珍贵。</p>
 <p>希望本文能为大家在选择器材时提供一些参考和启发。摄影的乐趣不仅在于追求技术的极致，更在于用心去捕捉和表达生活中的美好瞬间。无论你手中的器材价格如何，最重要的是用它去记录你所热爱的世界。</p>
 <h3 id="五-参考资料">五、参考资料 </h3>
 <p><a href="https://www.cc98.org/topic/5709481">新一篇的两万字长文，时隔半年再来聊聊相机和摄影</a></p>

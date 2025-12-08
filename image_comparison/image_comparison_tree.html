@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image Compare</title>
+    <link rel="stylesheet" href="./image-compare.css" />
+  </head>
+  <body style="padding:16px;font-family:system-ui">
+
+    <div class="compare-root" data-compare-id="closeup-35gm-ts35">
+      <div class="compare-header">
+        <div class="compare-title">35GM vs TS35</div>
+        <div class="compare-groups">
+          <select class="compare-select"></select>
+        </div>
+      </div>
+
+      <div class="compare-main">
+        <div class="compare-pane" data-side="left">
+          <div class="compare-pane-label">35GM</div>
+          <div class="compare-loading">
+            <div class="compare-loading-inner">
+              <div class="compare-spinner"></div>
+              <span>加载中…</span>
+            </div>
+          </div>
+          <img src alt="left image" />
+        </div>
+
+        <div class="compare-pane" data-side="right">
+          <div class="compare-pane-label">TS35</div>
+          <div class="compare-loading">
+            <div class="compare-loading-inner">
+              <div class="compare-spinner"></div>
+              <span>加载中…</span>
+            </div>
+          </div>
+          <img src alt="right image" />
+        </div>
+      </div>
+
+      <div class="compare-footer">
+        <span>滚轮/双指：缩放 | 拖动/单指：平移</span>
+        <span class="view-status"></span>
+      </div>
+    </div>
+
+    <script src="./image-compare.js"></script>
+    <script>
+
+    const imageGroups = [
+      {
+        left:  "../参考图片/实拍对比/色散对比/_DSC1911.jpg",
+        right: "../参考图片/实拍对比/色散对比/_DSC1913.jpg"
+      }
+    ];
+
+    // ===== 初始化：自动根据 data-compare-id 绑定配置 =====
+    document.addEventListener("DOMContentLoaded", function () {
+      const configMap = {
+        "closeup-35gm-ts35": imageGroups,
+      };
+
+      Object.entries(configMap).forEach(([key, groups]) => {
+        const root = document.querySelector(`[data-compare-id="${key}"]`);
+        if (root) {
+          ImageCompare.init(root, groups);
+        }
+      });
+    });
+  </script>
+  </body>
+</html>

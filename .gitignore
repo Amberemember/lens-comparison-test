@@ -1,7 +1,8 @@
 # 忽略 Python 虚拟环境
 lens-comparison-test/
 
+# 忽略 Python 程序
+python/
+
 # 忽略所有 Python 源代码文件
 *.py
-
-try.html

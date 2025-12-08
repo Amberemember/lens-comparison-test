@@ -138,7 +138,7 @@
     border: 1px solid var(--label-border);
     font-size: 11px;
     color: #e5e7eb;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
   }
 
@@ -150,6 +150,50 @@
     transform: translate(0px, 0px) scale(1);
     will-change: transform;
     pointer-events: none;
+  }
+
+  /* ===== 新增：加载遮罩 & 动画 ===== */
+  .compare-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(1px);
+    background: rgba(15, 23, 42, 0.25);
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease-out;
+  }
+
+  .compare-loading.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .compare-loading-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #e5e7eb;
+  }
+
+  .compare-spinner {
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    border: 2px solid rgba(243, 244, 246, 0.3);
+    border-top-color: #e5e7eb;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .compare-footer {
@@ -191,10 +235,24 @@
     <div class="compare-main">
       <div class="compare-pane" data-side="left">
         <div class="compare-pane-label">35GM</div>
+        <!-- 新增：加载遮罩 -->
+        <div class="compare-loading">
+          <div class="compare-loading-inner">
+            <div class="compare-spinner"></div>
+            <span>加载中…</span>
+          </div>
+        </div>
         <img src="" alt="left image" />
       </div>
       <div class="compare-pane" data-side="right">
         <div class="compare-pane-label">TS35</div>
+        <!-- 新增：加载遮罩 -->
+        <div class="compare-loading">
+          <div class="compare-loading-inner">
+            <div class="compare-spinner"></div>
+            <span>加载中…</span>
+          </div>
+        </div>
         <img src="" alt="right image" />
       </div>
     </div>
@@ -253,6 +311,7 @@
 
         this.panes = Array.from(root.querySelectorAll(".compare-pane"));
         this.images = this.panes.map(p => p.querySelector("img"));
+        this.loadingOverlays = this.panes.map(p => p.querySelector(".compare-loading"));
         this.groupSelect = root.querySelector("#compare-select");
         this.statusEl = root.querySelector("#view-status");
 
@@ -312,11 +371,25 @@
         });
       }
 
+      // 显示/隐藏加载遮罩
+      showLoading() {
+        this.loadingOverlays.forEach(overlay => {
+          overlay.classList.add("visible");
+        });
+      }
+
+      hideLoading() {
+        this.loadingOverlays.forEach(overlay => {
+          overlay.classList.remove("visible");
+        });
+      }
+
       setGroup(index) {
         this.currentGroupIndex = index;
         const group = this.groups[index];
-        this.images[0].src = group.left;
-        this.images[1].src = group.right;
+
+        // 切换分组时先显示加载遮罩
+        this.showLoading();
 
         // 重置视图
         this.state.scale = this.DEFAULT_SCALE;
@@ -328,6 +401,38 @@
 
         // 同步下拉选中项
         this.groupSelect.value = String(index);
+
+        // 等待两张图都完成加载后再隐藏遮罩
+        let pending = this.images.length;
+        const done = () => {
+          pending--;
+          if (pending <= 0) {
+            this.hideLoading();
+          }
+        };
+
+        // 依次设置图片 src，并处理缓存情况
+        this.images.forEach((img, i) => {
+          // 先清掉旧的 onload/onerror，避免重复触发
+          img.onload = null;
+          img.onerror = null;
+
+          img.onload = () => {
+            done();
+          };
+          img.onerror = () => {
+            // 即使加载失败也要结束 loading，防止永远转圈
+            done();
+          };
+
+          const src = i === 0 ? group.left : group.right;
+          img.src = src;
+
+          // 如果浏览器已经缓存好图片，complete 会为 true
+          if (img.complete && img.naturalWidth > 0) {
+            done();
+          }
+        });
       }
 
       attachInteractions() {

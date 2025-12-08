@@ -3,3 +3,5 @@ lens-comparison-test/
 
 # 忽略所有 Python 源代码文件
 *.py
+
+try.html
